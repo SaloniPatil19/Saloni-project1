@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Temples in Maharashtra</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+
+        /* ================= BODY ================= */
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff8f0;
+            color: #333;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background-color: #7b2d12;
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            margin-left: 15px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffd166 !important;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            height: 550px;
+
+            background-image:
+                linear-gradient(rgba(0,0,0,0.55),
+                rgba(0,0,0,0.55)),
+                url("https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        .hero-btn {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .hero-btn:hover {
+            background-color: #e68900;
+            color: white;
+        }
+
+
+        /* ================= SECTION TITLE ================= */
+
+        .section-title {
+            text-align: center;
+            color: #7b2d12;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+
+        /* ================= TEMPLE CARD ================= */
+
+        .temple-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+            transition: 0.4s;
+
+            height: 100%;
+        }
+
+        .temple-card:hover {
+            transform: translateY(-10px);
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+        }
+
+
+        /* ================= IMAGE CSS ================= */
+
+        .image-box {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .temple-img {
+            width: 100%;
+            height: 240px;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: transform 0.5s ease;
+        }
+
+        .temple-card:hover .temple-img {
+            transform: scale(1.1);
+        }
+
+
+        /* ================= CARD CONTENT ================= */
+
+        .temple-card .card-body {
+            padding: 20px;
+        }
+
+        .temple-card h4 {
+            color: #7b2d12;
+            font-weight: bold;
+        }
+
+        .temple-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .read-btn {
+            background-color: #7b2d12;
+            color: white;
+            border: none;
+        }
+
+        .read-btn:hover {
+            background-color: #4d1c0b;
+            color: white;
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about-section {
+            background-color: #f3dfc5;
+            padding: 70px 0;
+        }
+
+        .about-section h2 {
+            color: #7b2d12;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 350px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            background-color: white;
+            padding: 70px 0;
+        }
+
+        .contact-box {
+            background-color: #fff8f0;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+
+        .contact-box h3 {
+            color: #7b2d12;
+            font-weight: bold;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+        }
+
+        .contact-icon {
+            color: #7b2d12;
+            font-size: 25px;
+            margin-right: 10px;
+        }
+
+        .form-control {
+            padding: 12px;
+
+            border-radius: 8px;
+
+            border: 1px solid #ccc;
+        }
+
+        .submit-btn {
+            background-color: #7b2d12;
+            color: white;
+
+            border: none;
+
+            padding: 12px 30px;
+
+            border-radius: 25px;
+        }
+
+        .submit-btn:hover {
+            background-color: #4d1c0b;
+            color: white;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background-color: #7b2d12;
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        footer a {
+            color: white;
+            font-size: 22px;
+            margin: 0 8px;
+            text-decoration: none;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 768px) {
+
+            .hero {
+                height: 450px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .about-img {
+                height: 280px;
+                margin-bottom: 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#">
+            🛕 Maharashtra Temples
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#temples">
+                        Temples
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <h1>Temples in Maharashtra</h1>
+
+        <p>
+            Explore the Spiritual, Historical and Cultural Heritage
+            of Maharashtra
+        </p>
+
+        <a href="#temples" class="btn hero-btn">
+            Explore Temples
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= TEMPLE SECTION ================= -->
+
+<section class="container py-5" id="temples">
+
+    <h2 class="section-title">
+        Famous Temples in Maharashtra
+    </h2>
+
+    <div class="row g-4">
+
+
+        <!-- GRISHNESHWAR -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card temple-card">
+
+                <div class="image-box">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80"
+                    class="temple-img"
+                    alt="Grishneshwar Temple">
+
+                </div>
+
+                <div class="card-body">
+
+                    <h4>Grishneshwar Temple</h4>
+
+                    <p>
+                        Grishneshwar Temple is one of the
+                        twelve Jyotirlinga temples of Lord Shiva.
+                        It is located near Ellora in Maharashtra.
+                    </p>
+
+                    <button class="btn read-btn">
+                        Read More
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRIMBAKESHWAR -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card temple-card">
+
+                <div class="image-box">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=900&q=80"
+                    class="temple-img"
+                    alt="Trimbakeshwar Temple">
+
+                </div>
+
+                <div class="card-body">
+
+                    <h4>Trimbakeshwar Temple</h4>
+
+                    <p>
+                        Trimbakeshwar Temple is one of the
+                        twelve Jyotirlingas and is located
+                        near Nashik.
+                    </p>
+
+                    <button class="btn read-btn">
+                        Read More
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BHIMASHANKAR -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card temple-card">
+
+                <div class="image-box">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&w=900&q=80"
+                    class="temple-img"
+                    alt="Bhimashankar Temple">
+
+                </div>
+
+                <div class="card-body">
+
+                    <h4>Bhimashankar Temple</h4>
+
+                    <p>
+                        Bhimashankar is a famous Jyotirlinga
+                        temple located in the Sahyadri hills
+                        of Maharashtra.
+                    </p>
+
+                    <button class="btn read-btn">
+                        Read More
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TULJA BHAVANI -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card temple-card">
+
+                <div class="image-box">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=900&q=80"
+                    class="temple-img"
+                    alt="Tulja Bhavani Temple">
+
+                </div>
+
+                <div class="card-body">
+
+                    <h4>Tulja Bhavani Temple</h4>
+
+                    <p>
+                        Tulja Bhavani Temple is a famous
+                        temple dedicated to Goddess Bhavani
+                        in Tuljapur.
+                    </p>
+
+                    <button class="btn read-btn">
+                        Read More
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIDDHIVINAYAK -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card temple-card">
+
+                <div class="image-box">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=900&q=80"
+                    class="temple-img"
+                    alt="Siddhivinayak Temple">
+
+                </div>
+
+                <div class="card-body">
+
+                    <h4>Siddhivinayak Temple</h4>
+
+                    <p>
+                        Siddhivinayak Temple is a famous
+                        temple dedicated to Lord Ganesha
+                        located in Mumbai.
+                    </p>
+
+                    <button class="btn read-btn">
+                        Read More
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SHIRDI -->
+
+        <div class="col-lg-4 col-md-6">
+
+            <div class="card temple-card">
+
+                <div class="image-box">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=900&q=80"
+                    class="temple-img"
+                    alt="Shirdi Sai Baba Temple">
+
+                </div>
+
+                <div class="card-body">
+
+                    <h4>Shirdi Sai Baba Temple</h4>
+
+                    <p>
+                        Shirdi is a famous pilgrimage destination
+                        associated with Shri Sai Baba and attracts
+                        devotees from many places.
+                    </p>
+
+                    <button class="btn read-btn">
+                        Read More
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="about-section" id="about">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-md-6">
+
+                <img
+                src="https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=1000&q=80"
+                class="about-img"
+                alt="Maharashtra Temple">
+
+            </div>
+
+            <div class="col-md-6">
+
+                <h2>About Temples in Maharashtra</h2>
+
+                <p>
+                    Maharashtra is famous for its rich cultural,
+                    historical and spiritual heritage. The state
+                    has many ancient temples that attract devotees
+                    and tourists throughout the year.
+                </p>
+
+                <p>
+                    These temples represent the culture, traditions,
+                    architecture and religious heritage of Maharashtra.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact-section" id="contact">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Contact Us
+        </h2>
+
+        <div class="row g-4">
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <div class="col-md-5">
+
+                <div class="contact-box">
+
+                    <h3>Get In Touch</h3>
+
+                    <div class="contact-info">
+
+                        <p>
+                            <i class="bi bi-geo-alt-fill contact-icon"></i>
+
+                            Maharashtra, India
+                        </p>
+
+                        <p>
+                            <i class="bi bi-telephone-fill contact-icon"></i>
+
+                            +91 98765 43210
+                        </p>
+
+                        <p>
+                            <i class="bi bi-envelope-fill contact-icon"></i>
+
+                            info@maharashtratemples.com
+                        </p>
+
+                        <p>
+                            <i class="bi bi-clock-fill contact-icon"></i>
+
+                            Monday - Sunday
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT FORM -->
+
+            <div class="col-md-7">
+
+                <div class="contact-box">
+
+                    <form>
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Name
+                            </label>
+
+                            <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter your name"
+                            required>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Email
+                            </label>
+
+                            <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                            required>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Message
+                            </label>
+
+                            <textarea
+                            class="form-control"
+                            rows="5"
+                            placeholder="Enter your message"
+                            required></textarea>
+
+                        </div>
+
+
+                        <button
+                        type="submit"
+                        class="btn submit-btn">
+
+                            Send Message
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 Temples in Maharashtra
+    </p>
+
+    <p>
+        Explore • Culture • Heritage • Spirituality
+    </p>
+
+    <a href="#">
+        <i class="bi bi-facebook"></i>
+    </a>
+
+    <a href="#">
+        <i class="bi bi-instagram"></i>
+    </a>
+
+    <a href="#">
+        <i class="bi bi-youtube"></i>
+    </a>
+
+</footer>
+
+
+<!-- Bootstrap JavaScript -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
